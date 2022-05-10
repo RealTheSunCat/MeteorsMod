@@ -10,9 +10,6 @@ import net.meteor.common.packets.PacketGhostMeteor;
 import net.meteor.common.packets.PacketLastCrash;
 import net.meteor.common.packets.PacketSettings;
 import net.meteor.common.packets.PacketSoonestMeteor;
-import net.meteor.plugin.baubles.Baubles;
-import net.meteor.plugin.baubles.PacketToggleMagnetism;
-import net.meteor.plugin.baubles.PacketTogglePlayerMagnetism;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
@@ -41,10 +38,6 @@ public class ClientHandler
 		MeteorsMod.network.registerMessage(PacketLastCrash.Handler.class, PacketLastCrash.class, 3, Side.CLIENT);
 		MeteorsMod.network.registerMessage(PacketSettings.Handler.class, PacketSettings.class, 4, Side.CLIENT);
 		MeteorsMod.network.registerMessage(PacketSoonestMeteor.Handler.class, PacketSoonestMeteor.class, 5, Side.CLIENT);
-		if (Baubles.isBaublesLoaded()) {
-			MeteorsMod.network.registerMessage(PacketToggleMagnetism.Handler.class, PacketToggleMagnetism.class, 6, Side.SERVER);
-			MeteorsMod.network.registerMessage(PacketTogglePlayerMagnetism.Handler.class, PacketTogglePlayerMagnetism.class, 7, Side.CLIENT);
-		}
 	}
 
 	public static BlockPos getClosestIncomingMeteor(double pX, double pZ) {

@@ -1,7 +1,7 @@
 buildscript {
     repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        mavenCentral()
+        maven { url = "https://files.minecraftforge.net/maven" }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "1.12.2-2.14.3"
-group= "net.meteor" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "net.meteor" 
 archivesBaseName = "meteors"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
@@ -33,24 +33,24 @@ minecraft {
 repositories {
     maven { // The repo from which to get waila
         name "Mobius Repo"
-        url "http://mobiusstrip.eu/maven"
+        url "https://mobiusstrip.eu/maven"
     }
     maven { // the repo from which to get NEI and stuff
         name 'CB Repo'
-        url "http://chickenbones.net/maven/"
+        url "https://chickenbones.net/maven/"
     }
 }
 
 dependencies {
-//	compile "mcp.mobius.waila:Waila:1.5.9_1.7.10"
+    //compile "mcp.mobius.waila:Waila:1.5.9_1.7.10"
     compile files("./Hwyla-1.8.26-B41_1.12.2-deobf.jar")
-	compile files("./Baubles-1.12-1.5.2-deobf.jar") // If Azanor has a maven repo, I'll change it over
+    compile files("./Baubles-1.12-1.5.2-deobf.jar") // If Azanor has a maven repo, I'll change it over
     compile files("./Thaumcraft-1.12.2-6.1.BETA26-deobf.jar")
 }
 
 processResources
 {
-	// this will ensure that this task is redone when the versions change.
+    // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
 
@@ -58,7 +58,7 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
                 
-        // replace version and mcversion
+    // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
         

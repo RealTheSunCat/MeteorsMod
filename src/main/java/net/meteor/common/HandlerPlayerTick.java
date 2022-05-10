@@ -2,7 +2,6 @@ package net.meteor.common;
 
 import java.util.List;
 
-import net.meteor.plugin.baubles.Baubles;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.EntityItem;
@@ -88,11 +87,7 @@ public class HandlerPlayerTick
 
 	public static int getMagnetizationLevel(EntityPlayer player) {
 		int enchLevel = Math.max(EnchantmentHelper.getMaxEnchantmentLevel(MeteorsMod.Magnetization, player), EnchantmentHelper.getEnchantmentLevel(MeteorsMod.Magnetization, player.getHeldItem(EnumHand.MAIN_HAND)));
-		if (Baubles.isBaublesLoaded()) {
-			return Baubles.canAttractItems(player, enchLevel);
-		} else {
-			return enchLevel;
-		}
+		return enchLevel;
 	}
 
 	private void updateEntityItem(EntityItem en, EntityPlayer player, double closeness) {

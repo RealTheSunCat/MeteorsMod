@@ -16,8 +16,6 @@ import net.meteor.common.entity.EntityComet;
 import net.meteor.common.entity.EntityCometKitty;
 import net.meteor.common.entity.EntityMeteor;
 import net.meteor.common.entity.EntitySummoner;
-import net.meteor.plugin.baubles.Baubles;
-import net.meteor.plugin.thaumcraft.Thaumcraft;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -251,21 +249,7 @@ public class MeteorsMod implements IWorldGenerator
 	}
 	
 	private void loadPlugins() {//TODO 1.12.2
-		if (Loader.isModLoaded("Waila")) {
-			FMLInterModComms.sendMessage("Waila", "register", "net.meteor.plugin.waila.Waila.register");
-		} else {
-			log.info("Waila not found. Waila integration disabled.");
-		}
-		if (Loader.isModLoaded("Baubles")) {
-			Baubles.setupBaubleItems();
-		} else {
-			log.info("Baubles not found. Baubles integration disabled.");
-		}
-		if (Loader.isModLoaded("Thaumcraft")) {
-			Thaumcraft.incorporateThaumcraft();
-		} else {
-			log.info("Thaumcraft not found. Thaumcraft integration disabled.");
-		}
+		
 	}
 
 	@Override

@@ -10,8 +10,6 @@ import net.meteor.client.tileentity.TileEntityMeteorTimerRenderer;
 import net.meteor.common.entity.*;
 import net.meteor.common.tileentity.TileEntityMeteorShield;
 import net.meteor.common.tileentity.TileEntityMeteorTimer;
-import net.meteor.plugin.baubles.Baubles;
-import net.meteor.plugin.baubles.MagnetizationOverlay;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -54,10 +52,6 @@ public class ClientProxy extends CommonProxy
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MeteorBlocks.METEOR_SHIELD), new ShieldItemRenderer());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MeteorBlocks.METEOR_TIMER), new TimerItemRenderer());
 		 */
-
-		if (Baubles.isBaublesLoaded()) {
-			MinecraftForge.EVENT_BUS.register(new MagnetizationOverlay());
-		}
 	}
 
 	public static void registerSlipperyBlockModels() {
@@ -191,10 +185,6 @@ public class ClientProxy extends CommonProxy
 
 	@Override
 	public void preInit() {
-		if (Baubles.isBaublesLoaded()) {
-			Baubles.setupBaubleClient();
-		}
-
 		RenderingRegistry.registerEntityRenderingHandler(EntityMeteor.class, RenderMeteor.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityAlienCreeper.class, RenderAlienCreeper.FACTORY);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCometKitty.class, RenderCometKitty.FACTORY);
